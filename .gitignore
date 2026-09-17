@@ -1,0 +1,13 @@
+previous-site/
+.tools/
+.preview/
+__pycache__/
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store
+
+# Original video masters; publish optimized MP4 versions instead.
+site/assets/*.MOV
+site/assets/*.mov
