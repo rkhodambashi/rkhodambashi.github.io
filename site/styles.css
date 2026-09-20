@@ -2,7 +2,7 @@
 @media(min-width:900px){.feature{min-height:400px}.research{min-height:470px}}@media(max-width:900px){.wrap{width:calc(100% - 48px)}.hero{gap:32px;padding-block:60px}.hero-image img{aspect-ratio:.9}.about-grid{gap:40px}.timeline article{grid-template-columns:110px 1fr}.timeline article>span{grid-column:2}.section-heading>p{max-width:260px}.project{padding:25px}.photo-project{padding:0}.project-content{padding:25px}h1{letter-spacing:-2px}}@media(max-width:640px){.wrap{width:calc(100% - 36px)}.site-header{align-items:start;padding-block:20px;gap:20px}.brand{gap:10px}.brand>span:last-child{font-size:10px}nav{gap:10px 16px;flex-wrap:wrap;justify-content:end;max-width:180px;font-size:11px}.hero{grid-template-columns:1fr;padding-block:45px;gap:40px}h1{font-size:48px}.hero-image img{aspect-ratio:1.5}.hero-image:before{display:none}.discipline-bar .wrap{display:grid;grid-template-columns:1fr 1fr;font-size:9px;gap:10px}.section{padding-block:55px}.section-heading{display:block;margin-bottom:28px}.section-heading>p{max-width:none;margin-top:18px}.section-heading>.text-link{display:inline-block;margin-top:20px}.projects,.about-grid{grid-template-columns:1fr}.about-grid{gap:25px}.project h3{font-size:25px}.timeline article{grid-template-columns:1fr;gap:6px}.timeline article>span{grid-column:auto}.contact-link{gap:15px}footer{flex-wrap:wrap}footer>span:nth-child(2){display:none}.eyebrow{font-size:9px}.resume h1{font-size:34px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:white;color:black}.resume{width:100%;max-width:none;padding:0}.resume-nav,.site-header,footer,.skip-link{display:none}.resume h1{font-size:28px}.resume h2{margin-top:20px}.resume p,.resume li{font-size:10pt}.resume article{break-inside:avoid}a{text-decoration:none}}
 
 /* Anchor the crop on the arm and drums, shifting the photo up and right. */
-.hero-image { width: 90%; justify-self: end; }
+.hero-image { width: 82%; justify-self: end; }
 .hero-image img { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; object-position: right top; }
 
 .project-video { margin: 24px 0; }
@@ -48,3 +48,170 @@
 
 button.video-preview { border: 0; padding: 0; background: #182329; cursor: pointer; font: inherit; }
 button.video-preview img { object-fit: contain; }
+
+.portfolio-disclosure { color: var(--muted); font-size: 13px; line-height: 1.65; border-left: 2px solid var(--line); padding-left: 16px; margin: 0 0 30px; max-width: 850px; }
+
+.process-chart { margin: 0 0 40px; }
+.process-chart img { width: 100%; max-width: 600px; height: auto; margin-inline: auto; border: 1px solid var(--line); }
+.process-chart figcaption { margin-top: 12px; color: var(--muted); font-size: 12px; }
+.process-chart figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+
+.process-story { max-width: 900px; margin-bottom: 32px; }
+.process-story h2 { font-size: clamp(25px, 3vw, 32px); margin-bottom: 20px; }
+.process-story p, .gallery-context { color: var(--muted); font-size: 15px; line-height: 1.75; }
+.gallery-context { max-width: 850px; margin-bottom: 28px; }
+
+.application-heading { margin-top: 36px; font-size: 21px; font-weight: 550; }
+
+/* Chronological route: Georgia Tech -> ASU -> Calviri -> Kinematics. */
+.journey-caption { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--accent); margin-bottom: 8px; }
+.journey-years { margin-left: auto; color: var(--muted); font-size: 11px; }
+.project-journey { position: relative; padding-block: 55px; row-gap: 96px; align-items: stretch; }
+.project-journey > .project { position: relative; z-index: 1; min-width: 0; }
+.journey-path { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; color: var(--accent); overflow: visible; }
+.journey-segments path { fill: none; stroke: currentColor; stroke-width: 1.8; opacity: .65; }
+.journey-segments circle { fill: currentColor; }
+.project-journey .number { display: inline-grid; place-items: center; width: 28px; height: 28px; border: 1px solid #276c7860; border-radius: 50%; color: var(--accent); background: var(--paper); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media(max-width:640px) {
+ .project-journey { padding-block: 20px 0; row-gap: 42px; }
+ .journey-path { display: none; }
+ [data-journey="georgia"] { order: 1; }
+ [data-journey="asu"] { order: 2; }
+ [data-journey="calviri"] { order: 3; }
+ [data-journey="satellite"] { order: 4; }
+ .project-journey > .project:not([data-journey="satellite"])::after { content: '\2193'; position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); color: var(--accent); font-size: 23px; }
+}
+
+/* A continuous sculpted S ribbon, with the project cards resting above it. */
+.project-journey { padding: 24px 52px; column-gap: 64px; row-gap: 112px; isolation: isolate; }
+.project-journey > .project { border-radius: 16px; box-shadow: 0 12px 30px -18px #163a4655; }
+.journey-path { z-index: 0; }
+.journey-segments .ribbon-border { stroke: #d5e4df; stroke-width: 34px; opacity: 1; stroke-linecap: round; stroke-linejoin: round; }
+.journey-segments .ribbon-main { stroke: #357d86; stroke-width: 22px; opacity: 1; stroke-linecap: round; stroke-linejoin: round; }
+.journey-segments .ribbon-highlight { stroke: #ffffff28; stroke-width: 2px; opacity: 1; stroke-linecap: round; }
+.journey-segments .ribbon-chevron { stroke: #fff; stroke-width: 2.5px; stroke-linecap: round; stroke-linejoin: round; opacity: 1; }
+.journey-segments .ribbon-end { fill: #fff; }
+.project-journey .number { width: 32px; height: 32px; background: var(--accent); color: white; border: 0; font-weight: 700; }
+@media (min-width: 641px) and (max-width: 900px) { .project-journey { padding-inline: 42px; column-gap: 44px; } .project-journey .project { padding: 20px; } .project-journey .photo-project { padding: 0; } .project-journey .project-content { padding: 20px; } }
+@media (max-width: 640px) {
+ .project-journey { padding: 20px 0 0 20px; row-gap: 38px; }
+ .project-journey::before { content: ''; position: absolute; left: 0; top: 45px; bottom: 40px; width: 8px; background: #357d86; border-radius: 8px; box-shadow: 0 0 0 4px #d5e4df; }
+ .project-journey > .project:not([data-journey="satellite"])::after { bottom: -34px; }
+}
+
+/* Broader, softer ribbon with a restrained sage / teal / blue gradient. */
+.journey-segments .ribbon-border { stroke: #dce6dd; stroke-width: 40px; opacity: .55; }
+.journey-segments .ribbon-main { stroke: url(#journey-ribbon-gradient); stroke-width: 30px; opacity: .8; }
+.journey-segments .ribbon-highlight { stroke: #ffffff38; stroke-width: 3px; opacity: .7; }
+.journey-segments .ribbon-chevron { stroke: #315e66; opacity: .85; }
+.journey-segments .ribbon-end { fill: #f6f5f0; }
+@media (max-width: 640px) {
+ .project-journey::before { width: 10px; background: linear-gradient(to bottom, #9ebbb0, #7eaaa9 35%, #91b2c0 68%, #b8c8b1); box-shadow: 0 0 0 4px #dce6dd80; }
+}
+
+/* Apply opacity to the whole ribbon so overlapping segments stay seamless. */
+.journey-segments .ribbon-colors { opacity: .8; }
+.journey-segments .ribbon-colors .ribbon-main { opacity: 1; }
+
+/* Balance the hero into equal text and image areas. */
+@media (min-width: 641px) {
+ .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+ .hero-copy { align-self: stretch; }
+ .hero-image { width: 100%; min-width: 0; min-height: 0; align-self: stretch; display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+ .hero-image img { width: 100%; height: 100%; min-height: 0; object-fit: contain; object-position: center; }
+ .hero-image { contain: size; }
+}
+@media (max-width: 640px) { .hero-image { width: 100%; } }
+
+/* Keep the enlarged photo and caption in separate areas of the fixed frame. */
+@media (min-width: 641px) {
+ .hero-image { overflow: hidden; position: relative; display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+ .hero-image img { position: static; inset: auto; width: 100%; height: 100%; min-height: 0; object-fit: contain; object-position: center; transform: scale(1.1); transform-origin: center; clip-path: inset(4.5455%); }
+ .hero-image figcaption { position: static; z-index: auto; background: transparent; }
+}
+
+.hero-image figcaption { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 4px; text-align: left; }
+.hero-image figcaption span:last-child { font-size: 11px; letter-spacing: 0; }
+
+.hero-image figcaption span:first-child { font-size: 13px; font-weight: 600; }
+
+/* Place the caption above the photo, aligned to the frame's right edge. */
+.hero-image { display: flex; flex-direction: column; }
+.hero-image figcaption { order: -1; align-items: flex-end; text-align: right; padding: 0 0 12px; width: 100%; min-width: 0; }
+.hero-image figcaption span { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+@media (min-width: 641px) {
+ .hero-image { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+ .hero-image figcaption { grid-row: 1; }
+ .hero-image img { grid-row: 2; }
+}
+
+/* Photo and caption share the hero frame side by side. */
+.hero-image { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 130px); grid-template-rows: minmax(0, 1fr); column-gap: 14px; }
+.hero-image img { grid-column: 1; grid-row: 1; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; object-position: left center; transform: none; clip-path: none; }
+.hero-image figcaption { grid-column: 2; grid-row: 1; order: 0; align-self: start; align-items: flex-start; text-align: left; width: 100%; padding: 0; }
+.hero-image figcaption span { white-space: normal; overflow-wrap: anywhere; }
+@media (min-width: 641px) and (max-width: 900px) {
+ .hero-image { grid-template-columns: minmax(0, 1fr) minmax(0, 100px); column-gap: 10px; }
+}
+@media (max-width: 640px) {
+ .hero-image { grid-template-columns: minmax(0, 1fr) minmax(0, 110px); }
+ .hero-image img { height: auto; align-self: center; }
+}
+
+/* Keep the caption column fixed; align the photo toward it with a small gap. */
+.hero-image img { object-position: right center; }
+@media (min-width: 901px) {
+ .hero-image { grid-template-columns: minmax(0, 1fr) 8px minmax(0, 130px); column-gap: 0; }
+ .hero-image img { grid-column: 1; margin-left: 0; }
+ .hero-image figcaption { grid-column: 3; }
+}
+@media (min-width: 641px) and (max-width: 900px) {
+ .hero-image { grid-template-columns: minmax(0, 1fr) 8px minmax(0, 100px); column-gap: 0; }
+ .hero-image img { grid-column: 1; margin-left: 0; }
+ .hero-image figcaption { grid-column: 3; }
+}
+@media (max-width: 640px) {
+ .hero-image { grid-template-columns: minmax(0, 1fr) 8px minmax(0, 110px); column-gap: 0; }
+ .hero-image img { grid-column: 1; margin-left: 0; }
+ .hero-image figcaption { grid-column: 3; }
+}
+
+/* Give the photo a little more room on the left without moving the caption. */
+.hero-image { padding-left: 8px; }
+
+/* Trim the frame's empty left side while keeping its right edge fixed. */
+@media (min-width: 641px) {
+ .hero-image { width: calc(100% - 24px); justify-self: end; }
+ .hero-image img { transform: none; }
+}
+
+.project[data-journey="calviri"] { background: var(--tint); }
+
+/* Extend the image backdrop beneath the whole hero, fading toward the headline. */
+.hero { position: relative; isolation: isolate; }
+.hero::before { content: ''; position: absolute; inset: 90px 0 80px; z-index: -1; pointer-events: none; background: linear-gradient(90deg, rgba(229,233,229,0) 0%, rgba(229,233,229,.4) 45%, rgba(229,233,229,1) 100%); }
+.hero-image { background: transparent; }
+.hero-image::before { display: none; }
+@media (min-width: 641px) and (max-width: 900px) { .hero::before { inset-block: 60px; } }
+@media (max-width: 640px) { .hero::before { inset-block: 45px; } }
+
+.hero-image img { border-radius: 10px; }
+
+/* Separate the capability labels without implying navigation. */
+.discipline-bar .wrap { justify-content: center; gap: 0; }
+.discipline-bar .wrap > span { display: flex; align-items: center; }
+.discipline-bar .wrap > span + span::before { content: '\2022'; color: var(--accent); font-size: 14px; margin-inline: clamp(16px, 3vw, 44px); }
+@media (max-width: 640px) {
+ .discipline-bar .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+ .discipline-bar .wrap > span::before, .discipline-bar .wrap > span + span::before { content: '\2022'; color: var(--accent); font-size: 12px; margin: 0 9px 0 0; }
+}
+
+/* Align the capability strip with the full content width above and below. */
+@media (min-width: 641px) {
+ .discipline-bar .wrap { display: flex; justify-content: space-between; gap: 0; }
+ .discipline-bar .wrap > span { flex: 1; justify-content: center; position: relative; }
+ .discipline-bar .wrap > span:first-child { justify-content: flex-start; }
+ .discipline-bar .wrap > span:last-child { justify-content: flex-end; }
+ .discipline-bar .wrap > span + span::before { position: absolute; left: 0; transform: translateX(-50%); margin: 0; }
+}
