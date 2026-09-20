@@ -215,3 +215,9 @@ button.video-preview img { object-fit: contain; }
  .discipline-bar .wrap > span:last-child { justify-content: flex-end; }
  .discipline-bar .wrap > span + span::before { position: absolute; left: 0; transform: translateX(-50%); margin: 0; }
 }
+
+/* Shift the hero photo/caption right and bring the label close to the edge. */
+.hero-image { padding-right: 2px; }
+@media (min-width: 901px) {
+ .hero-image { grid-template-columns: minmax(0, 1fr) 8px minmax(0, 120px); }
+}
